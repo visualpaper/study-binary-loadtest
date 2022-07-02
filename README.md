@@ -64,7 +64,10 @@ locust -f locust_files/my_locust_file.py --host=http://localhost:8080
 ※ DRP と OVR (ドロップとオーバーラン) が多い場合は飽和の兆候があるが、ここも問題ない。
 
 * 対象サーバへ届いているコネクション数確認
+
+```
 > watch -d -n 1 "netstat -alpn | grep -E ':(80|443) ' | awk {'print $5'} | sed -e 's/\:[^.]*$//' | sort | uniq -c"
+```
 
 * ネットワーク送信量
 > watch -d -n 1 "cat /proc/net/dev"
