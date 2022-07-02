@@ -26,6 +26,36 @@
 
 <br><br>
 
+## formatter
+
+* black
+
+以下の設定を vscode に入れることで、PEP8 準拠していない場合など自動修正してくれるようになる。
+
+```
+  "python.formatting.provider": "black",
+  "editor.formatOnSave": true,
+```
+
+<br><br>
+
+## linter
+
+* flake8
+
+以下の設定を vscode に入れることで、PEP8 準拠していない場合など警告が出るようになる。
+
+```
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": [
+      "--max-line-length",
+      "120"
+  ],
+```
+
+<br><br>
+
 ## ローカル環境での試験
 
 ```
