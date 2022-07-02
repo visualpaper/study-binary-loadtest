@@ -1,7 +1,7 @@
 import json
 
-class RequestSupport:
 
+class RequestSupport:
     @staticmethod
     def default_handle(response):
         """
@@ -12,11 +12,11 @@ class RequestSupport:
            その後、もう一度 with 構文で開いた場合、二重に記録される点に注意してください。
         """
 
-        if hasattr(response, 'error') and response.error:
+        if hasattr(response, "error") and response.error:
             try:
                 response.failure(
-                    u'error:%s, body: %s '
-                    % (response.error, json.loads(response.content.decode('utf8')))
+                    "error:%s, body: %s "
+                    % (response.error, json.loads(response.content.decode("utf8")))
                 )
             except:
                 response.failure(response.text)

@@ -37,6 +37,13 @@
   "editor.formatOnSave": true,
 ```
 
+<br>
+
+手動でやる場合は以下コマンドを実施
+
+> black xxxx.py  ※ ファイル単体
+> black dir/     ※ 配下のファイル全て
+
 <br><br>
 
 ## linter
@@ -53,6 +60,13 @@
       "120"
   ],
 ```
+
+<br>
+
+手動でやる場合は以下コマンドを実施
+
+> flake8 xxxx.py  ※ ファイル単体
+> flake8 dir/     ※ 配下のファイル全て
 
 <br><br>
 
