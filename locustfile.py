@@ -1,4 +1,3 @@
-
 from locust import HttpUser, TaskSet, constant_pacing
 
 from apis.scenario1.scenario import Scenario1SubTaskSet
@@ -7,11 +6,7 @@ from apis.scenario3.scenario import Scenario3SubTaskSet
 
 
 class MainScenario(TaskSet):
-    tasks = {
-        Scenario1SubTaskSet: 1,
-        Scenario2SubTaskSet: 1,
-        Scenario3SubTaskSet: 1
-    }
+    tasks = {Scenario1SubTaskSet: 1, Scenario2SubTaskSet: 1, Scenario3SubTaskSet: 1}
 
 
 class HttpLocustUser(HttpUser):

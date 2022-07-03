@@ -13,11 +13,5 @@
   // linter
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": [
-      "--max-line-length",
-      "120"
-  ],
-  "python.analysis.extraPaths" : [
-    "./venv/Lib/site-packages/"
-  ],
+  "python.linting.flake8Path": ".venv/Scripts/flake8"
 }

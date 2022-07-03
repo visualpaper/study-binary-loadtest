@@ -1,84 +1,66 @@
 # study-binary-loadtest
 
-## Development
+## Versions
 
-- python -m venv venv
-- source venv/Scripts/activate  
-  ※ Windows の場合 venv\Scripts\Activate.ps1
+* python 3.8.1
+* poerty 1.1.13
 
-- (venv) python -m pip install --upgrade pip
-- (venv) pip install -r dev-requirements.txt
+## Setup
 
-<br>
+- curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -  
+  ※ Poetry の bin ディレクトリを手作業で path に追加するかしてください。  
+  ※ Unixでは $HOME/.poetry/bin で、Windowsでは %USERPROFILE%\.poetry\bin です。
 
-※ vccode 上で path が通らず `Import "***" could not be resolved Pylance(reportMissingImports)` が出る時は↓
+- poetry new xxxx  
+  ※ ひな形が必要ない場合、poetry init で pyproject.toml のみ作成する。  
+  ※ poetry はデフォルトでパッケージごとに仮想環境が作成される。  
+     後続コマンドでは仮想環境上で実施されるので、venv と競合する場合 `python -m pip uninstall virtualenv` で venv を uninstall すること。
 
-```
-1. 該当ライブラリの場所を確認
-   $ (venv) find -name "airflow"
-   ./venv/Lib/site-packages/locust
+- poetry config virtualenvs.in-project true  
+  ※ vscode との連携都合、仮想環境作成場所をフォルダ直下にします。
 
-2. vscode/settings.json に追記
-    "python.analysis.extraPaths" : [
-        "./venv/Lib/site-packages/"
-    ],
-```
+- poetry add locust==2.10.1
+- poetry add -D black
+- poetry add -D flake8
+- poetry add -D taskipy
+- poetry install
 
 <br><br>
 
-## formatter
+## VS Code Setup
 
-* black
+### formatter
 
-以下の設定を vscode に入れることで、PEP8 準拠していない場合など自動修正してくれるようになる。
+* black  
+  ※ PEP8 準拠していない場合など自動修正してくれるようになる。
 
 ```
   "python.formatting.provider": "black",
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": true, // 保存時に自動で成形するフラグ、好みで false にしてください。
 ```
 
-<br>
-
-手動でやる場合は以下コマンドを実施
-
-> black xxxx.py  ※ ファイル単体
-> black dir/     ※ 配下のファイル全て
-
-<br><br>
-
-## linter
+### linter
 
 * flake8
-
-以下の設定を vscode に入れることで、PEP8 準拠していない場合など警告が出るようになる。
 
 ```
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
-  "python.linting.flake8Args": [
-      "--max-line-length",
-      "120"
-  ],
+  // 設定が必要な場合 toml に記載し、flake8 exe ファイルパスを指定してください。
+  "python.linting.flake8Path": ".venv/Scripts/flake8"
 ```
 
-<br>
-
-手動でやる場合は以下コマンドを実施
-
-> flake8 xxxx.py  ※ ファイル単体
-> flake8 dir/     ※ 配下のファイル全て
+※ PEP8 準拠していない場合など警告が出るようになる。
 
 <br><br>
 
-## ローカル環境での試験
+## Build
 
-```
-locust --host=http://localhost:8080
-※ デフォルトでは locustfile.py が利用されます。
-
-locust -f locust_files/my_locust_file.py --host=http://localhost:8080
-※ ファイル名を指定する場合は↑のように指定してください。
-```
+- poetry run task format
+- poetry run task lint
+- poetry run locust --host=http://localhost:8080  
+  ※ デフォルトでは locustfile.py が利用されます。  
+  ※ ファイル名を指定する場合は `locust -f locust_files/my_locust_file.py --host=http://localhost:8080` のように指定してください。
 
 <br><br>
 
