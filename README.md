@@ -23,7 +23,7 @@
 
 - poetry add locust==2.10.1
 - poetry add -D black
-- poetry add -D pyproject-flake8 (flake8 が portry 未対応のため)
+- poetry add -D flake8
 - poetry add -D taskipy
 - poetry install
 
