@@ -5,6 +5,8 @@
 * python 3.8.1
 * poerty 1.1.13
 
+<br><br>
+
 ## Setup
 
 - curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -  
@@ -61,6 +63,15 @@
 - poetry run locust --host=http://localhost:8080  
   ※ デフォルトでは locustfile.py が利用されます。  
   ※ ファイル名を指定する場合は `locust -f locust_files/my_locust_file.py --host=http://localhost:8080` のように指定してください。
+
+<br><br>
+
+## CI
+
+* Github Action で ECR に登録するまで  
+  ※ 本来であれば https://zenn.dev/hukurouo/articles/github-actions-build-ecr に乗っ取り OIDC でやるべき。  
+  ※ 自 AWS でなく、リポジトリ名を晒したくないので、IAM ユーザの Credentials を以下設定している。
+     > Settings > Secrets > Actions > AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY/AWS_ECR_REPO_NAME
 
 <br><br>
 
