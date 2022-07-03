@@ -19,7 +19,7 @@ class Scenario2SubTaskSet(SequentialTaskSet):
     def call(self):
         path = self.UPLOAD_FILES_PATH / self.UPLOAD_FILENAMES[random.randrange(1)]
 
-        with open(path.resolve(), 'rb') as upload_file:
+        with open(path.resolve(), "rb") as upload_file:
             with self._action.call(upload_file) as response:
                 RequestSupport.default_handle(response)
 

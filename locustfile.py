@@ -8,6 +8,8 @@ from apis.scenario3.scenario import Scenario3SubTaskSet
 class MainScenario(TaskSet):
     tasks = {Scenario1SubTaskSet: 1, Scenario2SubTaskSet: 1, Scenario3SubTaskSet: 1}
 
+    def on_start(self):
+        self.client.verify = False
 
 class HttpLocustUser(HttpUser):
     tasks = [MainScenario]

@@ -18,7 +18,7 @@ class RequestSupport:
                     "error:%s, body: %s "
                     % (response.error, json.loads(response.content.decode("utf8")))
                 )
-            except:
+            except Exception:
                 response.failure(response.text)
             raise response.error
 

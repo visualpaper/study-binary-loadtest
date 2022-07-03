@@ -23,12 +23,12 @@ class Scenario3SubTaskSet(TaskSet):
         object_id = None
         path = self.UPLOAD_FILES_PATH / self.UPLOAD_FILENAMES[random.randrange(1)]
 
-        with open(path.resolve(), 'rb') as upload_file:
+        with open(path.resolve(), "rb") as upload_file:
             response = self._action.call(upload_file)
             with response:
                 RequestSupport.default_handle(response)
 
-            body = json.loads(response.content.decode('utf8'))
+            body = json.loads(response.content.decode("utf8"))
             object_id = body["objectId"]
 
         with self._delete_action.call(object_id) as response:
