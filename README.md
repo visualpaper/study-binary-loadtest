@@ -66,6 +66,15 @@
 
 <br><br>
 
+## CI
+
+* Github Action で ECR に登録するまで  
+  ※ 本来であれば https://zenn.dev/hukurouo/articles/github-actions-build-ecr に乗っ取り OIDC でやるべき。  
+  ※ 自 AWS でなく、リポジトリ名を晒したくないので、IAM ユーザの Credentials を以下設定している。
+     > Settings > Secrets > Actions > AWS_ACCESS_KEY_ID/AWS_SECRET_ACCESS_KEY/AWS_ECR_REPO_NAME
+
+<br><br>
+
 ## locust メモ
 
 * http client は requests がベース
