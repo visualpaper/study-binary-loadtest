@@ -10,16 +10,17 @@ locust = "2.10.1"
 
 [tool.poetry.dev-dependencies]
 black = "^22.6.0"
-flake8 = "^4.0.1"
 taskipy = "^1.10.2"
+flake8 = "^4.0.1"
 
 [build-system]
 requires = ["poetry>=1.0.0"]
 build-backend = "poetry.masonry.api"
 
-[tool.flake8]
-max-line-length = 120
-
 [tool.taskipy.tasks]
+# skip-string-normalization で ' を " に変えることを抑制している。
+# ※ PEP8 では規定されていないが好みだと思うので抑制している。
 format = "black actions apis locustfile.py --skip-string-normalization"
-lint = "flake8 actions apis locustfile.py"
+
+# E501 は行数
+lint = "flake8 actions apis locustfile.py --ignore=E501"

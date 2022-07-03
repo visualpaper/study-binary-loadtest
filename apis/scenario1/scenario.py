@@ -13,6 +13,6 @@ class Scenario1SubTaskSet(SequentialTaskSet):
         with self._action.call() as response:
             RequestSupport.default_handle(response)
 
-    # @task
-    # def end(self):
-    #    self.interrupt()
+    @task
+    def end(self):
+        self.interrupt()

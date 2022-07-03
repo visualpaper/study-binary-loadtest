@@ -23,7 +23,7 @@
 
 - poetry add locust==2.10.1
 - poetry add -D black
-- poetry add -D flake8
+- poetry add -D pyproject-flake8 (flake8 が portry 未対応のため)
 - poetry add -D taskipy
 - poetry install
 
@@ -47,9 +47,11 @@
 
 ```
   "python.linting.enabled": true,
-  "python.linting.flake8Enabled": true,
-  // 設定が必要な場合 toml に記載し、flake8 exe ファイルパスを指定してください。
-  "python.linting.flake8Path": ".venv/Scripts/flake8"
+  "python.linting.flake8Enabled": true
+  "python.linting.flake8Args": [
+      "--max-line-length",
+      "120"                          // デフォ 80 が厳しいため、好みで設定を追加してください。
+  ],
 ```
 
 ※ PEP8 準拠していない場合など警告が出るようになる。
