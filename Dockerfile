@@ -1,6 +1,7 @@
 FROM python:3.8-alpine
 
-RUN    pip install locust==2.10.1  \
+RUN    pip install -U setuptools \
+    && pip install locust==2.10.1  \
     && mkdir /locust
 
 ADD ./locust.py /locust/locust.py
