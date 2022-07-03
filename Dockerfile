@@ -1,4 +1,4 @@
-FROM python:3.8-alpine
+FROM python:3.8.10-slim-buster
 
 RUN    pip install -U setuptools \
     && pip install locust==2.10.1  \
