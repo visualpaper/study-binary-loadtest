@@ -11,6 +11,7 @@ class MainScenario(TaskSet):
     def on_start(self):
         self.client.verify = False
 
+
 class HttpLocustUser(HttpUser):
     tasks = [MainScenario]
 
