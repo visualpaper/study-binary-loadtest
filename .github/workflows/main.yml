@@ -29,5 +29,5 @@ jobs:
 
     - name: Format And Lint
       run: |
-        poetry run task fromat
+        poetry run task format
         poetry run task lint
