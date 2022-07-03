@@ -8,6 +8,7 @@ from actions.request_support import RequestSupport
 from actions.post_binary_action import PostBinaryAction
 from actions.delete_binary_action import DeleteBinaryAction
 
+
 class Scenario3SubTaskSet(TaskSet):
 
     UPLOAD_FILES_PATH = Path(__file__).parent.parent.parent / "datas" / "uploadFiles"

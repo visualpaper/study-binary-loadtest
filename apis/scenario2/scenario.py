@@ -6,6 +6,7 @@ from locust import SequentialTaskSet, task
 
 from actions.post_binary_action import PostBinaryAction
 
+
 class Scenario2SubTaskSet(SequentialTaskSet):
 
     UPLOAD_FILES_PATH = Path(__file__).parent.parent.parent / "datas" / "uploadFiles"
@@ -25,4 +26,3 @@ class Scenario2SubTaskSet(SequentialTaskSet):
     @task
     def end(self):
         self.interrupt()
-
